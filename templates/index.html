@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test App Flask</title>
+</head>
+<body>
+<h1>Server response : {{ title }}</h1>
+<hr>
+<form method="POST" action="/addUser">
+    <label for="emailCreate">New email:</label>
+    <input type="email" id="emailCreate" name="email" >
+
+    <label for="passwordCreate">New Password:</label>
+    <input type="password" id="passwordCreate" name="password">
+
+    <input type="submit" value="Create User">
+</form>
+<form method="POST" action="/deleteUser">
+    <label for="emailDelete">Current email:</label>
+    <input type="email" id="emailDelete" name="email">
+
+    <label for="passwordDelete">Current password:</label>
+    <input type="password" id="passwordDelete" name="password">
+
+    <input type="submit" value="Delete User">
+</form>
+<form method="POST" action="/login">
+    <label for="emailCurrent">Current email:</label>
+    <input type="email" id="emailCurrent" name="email">
+
+    <label for="passwordCurrent">Current password:</label>
+    <input type="password" id="passwordCurrent" name="password">
+
+    <input type="submit" value="Log-in">
+</form>
+<hr>
+<form method="POST" action="/addBook">
+    <label for="newisbn">New ISBN:</label>
+    <input type="text" id="newisbn" name="isbn">
+
+    <label for="newTitle">New title:</label>
+    <input type="text" id="newTitle" name="title">
+
+    <label for="newDescription">New description:</label>
+    <textarea  id="newDescription" name="description" cols="50" rows="1"></textarea>
+
+    <label for="newImage">New image URL:</label>
+    <input type="text" id="newImage" name="urlImage">
+
+    <input type="submit" value="Create book">
+</form>
+<form method="POST" action="/deleteBook">
+    <label for="isbnDelete">ISBN:</label>
+    <input type="text" id="isbnDelete" name="isbn">
+
+    <input type="submit" value="Delete book">
+</form>
+<hr>
+<form method="POST" action="/createTransaction">
+    <label for="isbnTransactionAdd">ISBN:</label>
+    <input type="text" id="isbnTransactionAdd" name="isbn">
+
+    <label for="emailTransacAdd">User email:</label>
+    <input type="text" id="emailTransacAdd" name="userMail">
+
+    <input type="submit" value="Create transaction">
+</form>
+<form method="POST" action="/deleteTransaction">
+    <label for="isbnTransactionDelete">ISBN:</label>
+    <input type="text" id="isbnTransactionDelete" name="isbn">
+
+    <label for="emailTransacDelete">User email:</label>
+    <input type="text" id="emailTransacDelete" name="userMail">
+
+    <label for="passwordTransacDelete">User password:</label>
+    <input type="password" id="passwordTransacDelete" name="password">
+
+    <input type="submit" value="Delete transaction">
+</form>
+</body>
+</html>

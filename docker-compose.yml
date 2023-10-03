@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_USER: adm
+      MARIADB_PASSWORD: goToSleep
+      MARIADB_ROOT_PASSWORD: Ethan
+
+  app:
+    image: tp4
+    restart: always
+    ports:
+      - "5000:5000"
