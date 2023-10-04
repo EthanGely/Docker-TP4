@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://adm:goToSleep@localhost:5000/COURS_DOCKER'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://adm:goToSleep@localhost:0/COURS_DOCKER'
 
 db = SQLAlchemy(app)
 
@@ -41,6 +41,8 @@ class Achat(db.Model):
         self.id_user = id_user
         self.purchase_date = purchase_date
 
+with app.app_context():
+    db.create_all()
 
 @app.route('/')
 def user():
@@ -178,6 +180,3 @@ def deleteTransaction():
         return render_template('index.html', title=f"Transaction has been deleted.")
     else :
         return render_template('index.html', title=f"This transaction does not exists.")
-
-if __name__ == '__main__':
-    app.run(debug=True)

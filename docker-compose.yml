@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.7'
 
 services:
 
@@ -6,12 +6,20 @@ services:
     image: mariadb
     restart: always
     environment:
+      MARIADB_DATABASE: COURS_DOCKER
       MARIADB_USER: adm
       MARIADB_PASSWORD: goToSleep
       MARIADB_ROOT_PASSWORD: Ethan
+    volumes:
+      - .:/code
+
 
   app:
-    image: tp4
+    build: .
     restart: always
+    depends_on:
+      - db
     ports:
-      - "5000:5000"
+      - "8080:5000"
+    environment:
+      FLASK_DEBUG: "true"
