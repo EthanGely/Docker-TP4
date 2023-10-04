@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://adm:goToSleep@localhost:0/COURS_DOCKER'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://adm:goToSleep@db/COURS_DOCKER'
 
 db = SQLAlchemy(app)
 
@@ -41,6 +41,7 @@ class Achat(db.Model):
         self.id_user = id_user
         self.purchase_date = purchase_date
 
+# Create the database tables if they don't exist
 with app.app_context():
     db.create_all()
 
